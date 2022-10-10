@@ -35,7 +35,7 @@ public class Account {
     @JoinColumn(name = "account_status_id", nullable = false)
     private AccountStatus accountStatus;
 
-    public Account(Integer id, List<Card> cardList, Client client, Bank terbank, AccountStatus accountStatus, Double balance) {
+    public Account(Integer id, Client client, Bank terbank, AccountStatus accountStatus, Double balance) {
         this.id = id;
         this.client = client;
         this.bank = terbank;

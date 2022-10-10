@@ -13,18 +13,14 @@ import java.util.Objects;
 @NoArgsConstructor
 public class AccountDto {
     private Integer id;
-    private List<Card> cardList;
     private Client client;
-    private Bank terbank;
     private AccountStatus accountStatus;
     private Double balance;
     private Bank bank;
 
-    public AccountDto(Integer id, List<Card> cardList, Client client, Bank terbank, AccountStatus accountStatus, Double balance, Bank bank) {
+    public AccountDto(Integer id, List<Card> cardList, Client client, AccountStatus accountStatus, Double balance, Bank bank) {
         this.id = id;
-        this.cardList = cardList;
         this.client = client;
-        this.terbank = terbank;
         this.accountStatus = accountStatus;
         this.balance = balance;
         this.bank = bank;
@@ -34,9 +30,7 @@ public class AccountDto {
     public String toString() {
         return "AccountDto{" +
                 "id=" + id +
-                ", cardList=" + cardList +
                 ", client=" + client +
-                ", terbank=" + terbank +
                 ", accountStatus=" + accountStatus +
                 ", balance=" + balance +
                 ", bank=" + bank +
@@ -48,11 +42,11 @@ public class AccountDto {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         AccountDto that = (AccountDto) o;
-        return Objects.equals(id, that.id) && Objects.equals(cardList, that.cardList) && Objects.equals(client, that.client) && Objects.equals(terbank, that.terbank) && Objects.equals(accountStatus, that.accountStatus) && Objects.equals(balance, that.balance) && Objects.equals(bank, that.bank);
+        return Objects.equals(id, that.id) && Objects.equals(client, that.client) && Objects.equals(accountStatus, that.accountStatus) && Objects.equals(balance, that.balance) && Objects.equals(bank, that.bank);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, cardList, client, terbank, accountStatus, balance, bank);
+        return Objects.hash(id, client, accountStatus, balance, bank);
     }
 }
