@@ -1,11 +1,8 @@
 package com.ssau.learn.dto;
 
-import com.ssau.learn.entity.Account;
 import lombok.*;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 @Data

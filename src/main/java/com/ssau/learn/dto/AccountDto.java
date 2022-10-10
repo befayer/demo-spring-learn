@@ -2,11 +2,9 @@ package com.ssau.learn.dto;
 
 import com.ssau.learn.entity.AccountStatus;
 import com.ssau.learn.entity.Bank;
-import com.ssau.learn.entity.Card;
 import com.ssau.learn.entity.Client;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import java.util.List;
 import java.util.Objects;
 
 @Data
@@ -18,7 +16,7 @@ public class AccountDto {
     private Double balance;
     private Bank bank;
 
-    public AccountDto(Integer id, List<Card> cardList, Client client, AccountStatus accountStatus, Double balance, Bank bank) {
+    public AccountDto(Integer id, Client client, AccountStatus accountStatus, Double balance, Bank bank) {
         this.id = id;
         this.client = client;
         this.accountStatus = accountStatus;
