@@ -26,5 +26,4 @@ public class BankController {
     public int getBankByTerbankName(@PathVariable @NonNull String terbankName) {
         return bankService.getBankByTerbankName(terbankName);
     }
-
 }

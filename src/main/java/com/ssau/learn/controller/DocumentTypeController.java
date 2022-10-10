@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/v1/url/document_types")
 @RequiredArgsConstructor
 public class DocumentTypeController {
-
     private final DocumentTypeService documentTypeService;
 
     @GetMapping("/{id}")

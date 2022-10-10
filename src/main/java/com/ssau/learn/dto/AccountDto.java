@@ -30,22 +30,6 @@ public class AccountDto {
         this.bank = bank;
     }
 
-    public Integer getId() {
-        return id;
-    }
-    public Client getClient() {
-        return client;
-    }
-    public AccountStatus getAccountStatus() {
-        return accountStatus;
-    }
-    public Double getBalance() {
-        return balance;
-    }
-    public Bank getBank() {
-        return bank;
-    }
-
     @Override
     public String toString() {
         return "AccountDto{" +
