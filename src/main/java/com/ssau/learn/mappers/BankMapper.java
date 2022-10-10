@@ -13,7 +13,6 @@ public class BankMapper {
         bankDto.setTerbankName(bank.getTerbankName());
         bankDto.setBik(bank.getBik());
         bankDto.setCity(bank.getCity());
-        bankDto.setAccountList(bank.getAccountList());
         return bankDto;
     }
 
@@ -23,7 +22,6 @@ public class BankMapper {
         bank.setTerbankName(bankDto.getTerbankName());
         bank.setBik(bankDto.getBik());
         bank.setCity(bankDto.getCity());
-        bank.setAccountList(bankDto.getAccountList());
         return bank;
     }
 }

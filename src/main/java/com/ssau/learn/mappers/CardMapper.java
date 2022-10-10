@@ -1,8 +1,6 @@
 package com.ssau.learn.mappers;
 
-import com.ssau.learn.dto.BankDto;
 import com.ssau.learn.dto.CardDto;
-import com.ssau.learn.entity.Bank;
 import com.ssau.learn.entity.Card;
 import org.springframework.stereotype.Service;
 

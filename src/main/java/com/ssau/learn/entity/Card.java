@@ -19,24 +19,18 @@ public class Card {
     @SequenceGenerator(name = "card_number", sequenceName = "card_number", allocationSize = 1)
     @Column(name = "card_number", nullable = false)
     private Integer id;
-
     @ManyToOne(optional = false)
     @JoinColumn(name = "account_number", nullable = false)
     private Account accountNumber;
-
     @Column(name = "date_start", nullable = false)
     private LocalDate dateStart;
-
     @Column(name = "date_end", nullable = false)
     private LocalDate dateEnd;
-
     @Column(name = "cvc", nullable = false)
     private Integer cvc;
-
     @ManyToOne(optional = false)
     @JoinColumn(name = "card_status_id", nullable = false)
     private CardStatus cardStatus;
-
     @Column(name = "balance", nullable = false)
     private Double balance;
 

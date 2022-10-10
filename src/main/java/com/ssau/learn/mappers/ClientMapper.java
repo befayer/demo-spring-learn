@@ -1,13 +1,8 @@
 package com.ssau.learn.mappers;
 
 import com.ssau.learn.dto.ClientDto;
-import com.ssau.learn.entity.Account;
 import com.ssau.learn.entity.Client;
-import com.ssau.learn.entity.ClientDocument;
 import org.springframework.stereotype.Service;
-
-import java.time.LocalDate;
-import java.util.List;
 
 @Service
 public class ClientMapper {
@@ -19,8 +14,6 @@ public class ClientMapper {
         clientDto.setSecondName(client.getSecondName());
         clientDto.setPatronymic(client.getPatronymic());
         clientDto.setBirthday(client.getBirthday());
-        clientDto.setClientDocumentList(client.getClientDocumentList());
-        clientDto.setAccountList(client.getAccountList());
         return clientDto;
     }
 
@@ -31,8 +24,6 @@ public class ClientMapper {
         client.setSecondName(clientDto.getSecondName());
         client.setPatronymic(clientDto.getPatronymic());
         client.setBirthday(clientDto.getBirthday());
-        client.setClientDocumentList(clientDto.getClientDocumentList());
-        client.setAccountList(clientDto.getAccountList());
         return client;
     }
 }

@@ -23,7 +23,6 @@ public class CardDto implements Serializable {
     private Integer cvc;
     private Double balance;
 
-
     public CardDto(Integer id, Account accountNumber, LocalDate dateStart, LocalDate dateEnd, Integer cvc, Double balance) {
         this.id = id;
         this.accountNumber = accountNumber;
@@ -36,23 +35,18 @@ public class CardDto implements Serializable {
     public Integer getId() {
         return id;
     }
-
     public Account getAccountNumber() {
         return accountNumber;
     }
-
     public LocalDate getDateStart() {
         return dateStart;
     }
-
     public LocalDate getDateEnd() {
         return dateEnd;
     }
-
     public Integer getCvc() {
         return cvc;
     }
-
     public Double getBalance() {
         return balance;
     }

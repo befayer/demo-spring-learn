@@ -33,9 +33,6 @@ public class Document {
     @Column(name = "is_active", nullable = false)
     private Boolean isActive = false;
 
-    @OneToMany(mappedBy = "document")
-    private List<ClientDocument> clientDocumentList;
-
     @ManyToOne
     @JoinColumn(name = "document_type_id", nullable = false)
     private DocumentType documentType;
@@ -46,7 +43,6 @@ public class Document {
         this.issueOrganization = issueOrganization;
         this.issueCode = issueCode;
         this.isActive = isActive;
-        clientDocumentList = new ArrayList<>();
         this.documentType = documentType;
     }
 }

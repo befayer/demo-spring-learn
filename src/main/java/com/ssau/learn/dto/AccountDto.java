@@ -6,10 +6,6 @@ import com.ssau.learn.entity.Card;
 import com.ssau.learn.entity.Client;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.stereotype.Service;
-
-import javax.persistence.*;
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.Objects;
 
@@ -37,27 +33,15 @@ public class AccountDto {
     public Integer getId() {
         return id;
     }
-
-    public List<Card> getCardList() {
-        return cardList;
-    }
-
     public Client getClient() {
         return client;
     }
-
-    public Bank getTerbank() {
-        return terbank;
-    }
-
     public AccountStatus getAccountStatus() {
         return accountStatus;
     }
-
     public Double getBalance() {
         return balance;
     }
-
     public Bank getBank() {
         return bank;
     }

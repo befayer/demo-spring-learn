@@ -1,13 +1,8 @@
 package com.ssau.learn.mappers;
 
 import com.ssau.learn.dto.DocumentDto;
-import com.ssau.learn.entity.ClientDocument;
 import com.ssau.learn.entity.Document;
-import com.ssau.learn.entity.DocumentType;
 import org.springframework.stereotype.Service;
-
-import java.time.LocalDate;
-import java.util.List;
 
 @Service
 public class DocumentMapper {
@@ -18,7 +13,6 @@ public class DocumentMapper {
         documentDto.setIssueOrganization(document.getIssueOrganization());
         documentDto.setIssueCode(document.getIssueCode());
         documentDto.setIsActive(document.getIsActive());
-        documentDto.setClientDocumentList(document.getClientDocumentList());
         documentDto.setDocumentType(document.getDocumentType());
         return documentDto;
     }
@@ -30,7 +24,6 @@ public class DocumentMapper {
         document.setIssueOrganization(document.getIssueOrganization());
         document.setIssueCode(document.getIssueCode());
         document.setIsActive(document.getIsActive());
-        document.setClientDocumentList(documentDto.getClientDocumentList());
         document.setDocumentType(documentDto.getDocumentType());
         return document;
     }

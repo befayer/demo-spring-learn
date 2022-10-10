@@ -17,14 +17,10 @@ public class CardStatus {
     @Column(name = "card_status_name", nullable = false)
     private String cardStatusName;
 
-    @OneToMany(mappedBy = "cardStatus", cascade = CascadeType.ALL)
-    private List<Card> cardList;
-
     public CardStatus(){}
 
     public CardStatus(String cardStatusName){
         this.cardStatusName = cardStatusName;
-        cardList = new ArrayList<>();
     }
 
     public String getCardStatusName(){

@@ -23,11 +23,7 @@ public class DocumentType {
     @Column(name = "document_type_name", nullable = false, insertable = true, updatable = true)
     private String documentTypeName;
 
-    @OneToMany(mappedBy = "documentType", cascade = CascadeType.ALL)
-    private List<Document> documentList;
-
     public DocumentType(String documentTypeName){
         this.documentTypeName = documentTypeName;
-        documentList = new ArrayList<>();
     }
 }

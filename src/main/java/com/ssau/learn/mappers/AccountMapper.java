@@ -9,7 +9,6 @@ public class AccountMapper {
     public AccountDto maoToAccountDto(Account account){
         AccountDto accountDto = new AccountDto();
         accountDto.setId(account.getId());
-        accountDto.setCardList(account.getCardList());
         accountDto.setClient(account.getClient());
         accountDto.setBank(account.getBank());
         accountDto.setAccountStatus(account.getAccountStatus());
@@ -20,7 +19,6 @@ public class AccountMapper {
     public Account mapToAccount(AccountDto accountDto){
         Account account = new Account();
         account.setId(accountDto.getId());
-        account.setCardList(accountDto.getCardList());
         account.setClient(accountDto.getClient());
         account.setBank(accountDto.getBank());
         account.setAccountStatus(accountDto.getAccountStatus());

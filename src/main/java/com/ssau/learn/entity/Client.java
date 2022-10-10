@@ -31,17 +31,10 @@ public class Client {
     @Column(name = "birthday", nullable = false)
     private LocalDate birthday;
 
-    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
-    private List<ClientDocument> clientDocumentList;
-
-    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
-    private List<Account> accountList;
-
     public Client(String firstName, String secondName, String patronymic, LocalDate birthday){
         this.firstName = firstName;
         this.secondName = secondName;
         this.patronymic = patronymic;
         this.birthday = birthday;
-        clientDocumentList = new ArrayList<>();
     }
 }
