@@ -14,13 +14,13 @@ import java.util.List;
 @NoArgsConstructor
 @Table(name = "document_type")
 public class DocumentType {
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "document_type_id")
-    @SequenceGenerator(name = "document_type_id", sequenceName = "document_type_id", allocationSize = 1)
-    @Column(name = "document_type_id", nullable = false, insertable = true, updatable = true)
-    private Integer id;
 
-    @Column(name = "document_type_name", nullable = false, insertable = true, updatable = true)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "document_type_id", nullable = false)
+    private int id;
+
+    @Column(name = "document_type_name", nullable = false)
     private String documentTypeName;
 
     public DocumentType(String documentTypeName){

@@ -1,5 +1,6 @@
 package com.ssau.learn.entity;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -9,16 +10,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @Table(name = "bank")
 public class Bank {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "terbank_id")
-    @SequenceGenerator(name = "terbank_id", sequenceName = "terbank_id", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "terbank_id", nullable = false)
-    private Integer id;
+    private int id;
     @Column(name = "terbank_name", nullable = false)
     private String terbankName;
     @Column(name = "bik", nullable = false)

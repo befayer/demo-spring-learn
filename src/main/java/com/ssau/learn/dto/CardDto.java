@@ -4,6 +4,7 @@ import com.ssau.learn.entity.Account;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
@@ -11,23 +12,25 @@ import java.util.Objects;
 @Data
 @NoArgsConstructor
 public class CardDto implements Serializable {
-    private Integer id;
+    private int id;
     private Account accountNumber;
     private LocalDate dateStart;
     private LocalDate dateEnd;
     private Integer cvc;
     private Double balance;
+    private boolean status;
 
-    public CardDto(Integer id, Account accountNumber, LocalDate dateStart, LocalDate dateEnd, Integer cvc, Double balance) {
+    public CardDto(int id, Account accountNumber, LocalDate dateStart, LocalDate dateEnd, Integer cvc, Double balance, boolean status) {
         this.id = id;
         this.accountNumber = accountNumber;
         this.dateStart = dateStart;
         this.dateEnd = dateEnd;
         this.cvc = cvc;
         this.balance = balance;
+        this.status = status;
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
     public Account getAccountNumber() {
@@ -55,19 +58,7 @@ public class CardDto implements Serializable {
                 ", dateEnd=" + dateEnd +
                 ", cvc=" + cvc +
                 ", balance=" + balance +
+                ", status=" + status +
                 '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        CardDto cardDto = (CardDto) o;
-        return Objects.equals(id, cardDto.id) && Objects.equals(accountNumber, cardDto.accountNumber) && Objects.equals(dateStart, cardDto.dateStart) && Objects.equals(dateEnd, cardDto.dateEnd) && Objects.equals(cvc, cardDto.cvc) && Objects.equals(balance, cardDto.balance);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, accountNumber, dateStart, dateEnd, cvc, balance);
     }
 }

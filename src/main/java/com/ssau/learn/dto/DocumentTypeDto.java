@@ -11,17 +11,17 @@ import java.util.Objects;
 @Data
 @NoArgsConstructor
 public class DocumentTypeDto implements Serializable {
-    private Integer id;
+    private int id;
     private String documentTypeName;
     private List<Document> documentList;
 
-    public DocumentTypeDto(Integer id, String documentTypeName) {
+    public DocumentTypeDto(int id, String documentTypeName) {
         this.id = id;
         this.documentTypeName = documentTypeName;
         documentList = new ArrayList<>();
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 

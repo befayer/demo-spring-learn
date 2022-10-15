@@ -8,12 +8,12 @@ import java.util.Objects;
 @Data
 @NoArgsConstructor
 public class BankDto implements Serializable {
-    private Integer id;
+    private int id;
     private String terbankName;
     private String bik;
     private String city;
 
-    public BankDto(Integer id, String terbankName, String bik, String city) {
+    public BankDto(int id, String terbankName, String bik, String city) {
         this.id = id;
         this.terbankName = terbankName;
         this.bik = bik;
@@ -24,7 +24,7 @@ public class BankDto implements Serializable {
     public int hashCode() {
         return Objects.hash(id, terbankName, bik, city);
     }
-    public Integer getId() {
+    public int getId() {
         return id;
     }
     public String getTerbankName() {

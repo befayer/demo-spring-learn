@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -20,23 +21,25 @@ import java.util.List;
 @NoArgsConstructor
 public class Account {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "account_seq")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "account_number", nullable = false)
-    private Integer id;
-    @Column(name = "balance", nullable = false)
+    private int id;
+    @Column(name = "status")
+    private boolean accountStatus = true;
+    @Column(name = "balance")
     private Double balance;
     @ManyToOne(optional = false)
-    @JoinColumn(name = "client_id", nullable = false)
+    @JoinColumn(name = "client_id")
     private Client client;
     @ManyToOne(optional = false)
-    @JoinColumn(name = "terbank_id", nullable = false)
+    @JoinColumn(name = "terbank_id")
     private Bank bank;
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "account_status_id", nullable = false)
-    private AccountStatus accountStatus;
 
-    public Account(Integer id, Client client, Bank terbank, AccountStatus accountStatus, Double balance) {
-        this.id = id;
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "currency_id")
+    private Currency currency;
+
+    public Account(Client client, Bank terbank, boolean accountStatus, Double balance) {
         this.client = client;
         this.bank = terbank;
         this.accountStatus = accountStatus;

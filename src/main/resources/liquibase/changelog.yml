@@ -1,0 +1,257 @@
+databaseChangeLog:
+
+  -  changeSet:
+       id:  1
+       author:  befayer
+       changes:
+         -  createTable:
+              tableName:  user
+              columns:
+                -  column:
+                     name:  id
+                     type:  int
+                     autoIncrement:  true
+                     constraints:
+                       primaryKey:  true
+                       nullable:  false
+                -  column:
+                     name:  login
+                     type:  varchar(50)
+                     constraints:
+                       nullable: false
+                -  column:
+                     name:  email
+                     type:  varchar(50)
+                     constraints:
+                       nullable:  false
+                -  column:
+                     name:  password
+                     type:  varchar(255)
+                     constraints:
+                       nullable:  false
+                -  column:
+                     name:  role
+                     type:  int
+                     defaultValue: 0
+                     constraints:
+                       nullable:  false
+         - createTable:
+             tableName: bank
+             columns:
+               - column:
+                   name: terbank_id
+                   type: int
+                   autoIncrement: true
+                   constraints:
+                     primaryKey: true
+                     nullable: false
+               - column:
+                   name: terbank_name
+                   type: varchar(50)
+                   constraints:
+                     nullable: false
+               - column:
+                   name: bik
+                   type: varchar(50)
+                   constraints:
+                     nullable: false
+               - column:
+                   name: city
+                   type: varchar(255)
+                   constraints:
+                     nullable: false
+         - createTable:
+             tableName: currency
+             columns:
+               - column:
+                   name: currency_id
+                   type: int
+                   autoIncrement: true
+                   constraints:
+                     primaryKey: true
+                     nullable: false
+               - column:
+                   name: currency_name
+                   type: varchar(15)
+                   constraints:
+                     nullable: false
+         - createTable:
+             tableName: document_type
+             columns:
+               - column:
+                   name: document_type_id
+                   type: int
+                   autoIncrement: true
+                   constraints:
+                     primaryKey: true
+                     nullable: false
+               - column:
+                   name: document_type_name
+                   type: varchar(30)
+                   constraints:
+                     nullable: false
+         - createTable:
+             tableName: document
+             columns:
+               - column:
+                   name: document_id
+                   type: int
+                   autoIncrement: true
+                   constraints:
+                     primaryKey: true
+                     nullable: false
+               - column:
+                   name: start_date
+                   type: date
+                   constraints:
+                     nullable: false
+               - column:
+                   name: issue_organization
+                   type: varchar(30)
+                   constraints:
+                     nullable: false
+               - column:
+                   name: is_active
+                   type: boolean
+                   defaultValue: true
+                   constraints:
+                     nullable: false
+               - column:
+                   name: document_type_id
+                   type: int
+                   constraints:
+                     nullable: false
+                     foreignKeyName: fk_document_document_type
+                     references: document_type(document_type_id)
+         - createTable:
+             tableName: client
+             columns:
+               - column:
+                   name: client_id
+                   type: int
+                   autoIncrement: true
+                   constraints:
+                     primaryKey: true
+                     nullable: false
+               - column:
+                   name: first_name
+                   type: varchar(50)
+                   constraints:
+                     nullable: false
+               - column:
+                   name: second_name
+                   type: varchar(50)
+                   constraints:
+                     nullable: false
+               - column:
+                   name: patronymic
+                   type: varchar(50)
+               - column:
+                   name: birthday
+                   type: date
+                   constraints:
+                     nullable: false
+         - createTable:
+             tableName: client_documents
+             columns:
+               - column:
+                   name: client_id
+                   type: int
+                   constraints:
+                     primaryKey: true
+                     nullable: false
+                     foreignKeyName: fk_client_documents_client
+                     references: client(client_id)
+               - column:
+                   name: document_id
+                   type: int
+                   constraints:
+                     primaryKey: true
+                     nullable: false
+                     foreignKeyName: fk_client_documents_document
+                     references: document(document_id)
+         - createTable:
+             tableName: account
+             columns:
+               - column:
+                   name: account_number
+                   type: int
+                   autoIncrement: true
+                   constraints:
+                     primaryKey: true
+                     nullable: false
+               - column:
+                   name: status
+                   type: boolean
+                   defaultValue: true
+                   constraints:
+                     nullable: false
+               - column:
+                   name: balance
+                   type: float
+                   constraints:
+                     nullable: false
+               - column:
+                   name: client_id
+                   type: int
+                   constraints:
+                     nullable: false
+                     foreignKeyName: fk_account_client
+                     references: client(client_id)
+               - column:
+                   name: terbank_id
+                   type: int
+                   constraints:
+                     nullable: false
+                     foreignKeyName: fk_account_terbank
+                     references: bank(terbank_id)
+               - column:
+                   name: currency_id
+                   type: int
+                   constraints:
+                     nullable: false
+                     foreignKeyName: fk_document_currency
+                     references: currency(currency_id)
+         - createTable:
+             tableName: card
+             columns:
+               - column:
+                   name: card_number
+                   type: int
+                   autoIncrement: true
+                   constraints:
+                     primaryKey: true
+                     nullable: false
+               - column:
+                   name: date_start
+                   type: date
+                   constraints:
+                     nullable: false
+               - column:
+                   name: date_end
+                   type: date
+                   constraints:
+                     nullable: false
+               - column:
+                   name: cvc
+                   type: int
+                   constraints:
+                     nullable: false
+               - column:
+                   name: status
+                   type: boolean
+                   defaultValue: true
+                   constraints:
+                     nullable: false
+               - column:
+                   name: balance
+                   type: float
+                   constraints:
+                     nullable: false
+               - column:
+                   name: account_number
+                   type: int
+                   constraints:
+                     nullable: false
+                     foreignKeyName: fk_card_account
+                     references: account(account_number)

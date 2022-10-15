@@ -11,7 +11,7 @@ public class AccountMapper {
         accountDto.setId(account.getId());
         accountDto.setClient(account.getClient());
         accountDto.setBank(account.getBank());
-        accountDto.setAccountStatus(account.getAccountStatus());
+        accountDto.setAccountStatus(account.isAccountStatus());
         accountDto.setBalance(account.getBalance());
         return accountDto;
     }
@@ -21,7 +21,7 @@ public class AccountMapper {
         account.setId(accountDto.getId());
         account.setClient(accountDto.getClient());
         account.setBank(accountDto.getBank());
-        account.setAccountStatus(accountDto.getAccountStatus());
+        account.setAccountStatus(accountDto.isAccountStatus());
         account.setBalance(accountDto.getBalance());
         return account;
     }

@@ -11,7 +11,6 @@ public class DocumentMapper {
         documentDto.setId(document.getId());
         documentDto.setDateStart(document.getDateStart());
         documentDto.setIssueOrganization(document.getIssueOrganization());
-        documentDto.setIssueCode(document.getIssueCode());
         documentDto.setIsActive(document.getIsActive());
         documentDto.setDocumentType(document.getDocumentType());
         return documentDto;
@@ -22,7 +21,6 @@ public class DocumentMapper {
         document.setId(documentDto.getId());
         document.setDateStart(documentDto.getDateStart());
         document.setIssueOrganization(document.getIssueOrganization());
-        document.setIssueCode(document.getIssueCode());
         document.setIsActive(document.getIsActive());
         document.setDocumentType(documentDto.getDocumentType());
         return document;

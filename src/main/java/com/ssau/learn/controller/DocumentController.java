@@ -3,7 +3,6 @@ package com.ssau.learn.controller;
 import com.ssau.learn.dto.DocumentDto;
 import com.ssau.learn.service.DocumentService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,5 +1,7 @@
 package com.ssau.learn.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -7,41 +9,44 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @Table(name = "document")
 public class Document {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "document_id")
-    @SequenceGenerator(name = "document_id", sequenceName = "document_id", allocationSize = 1)
-    @Column(name = "document_id", nullable = false, unique = true)
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "document_id", nullable = false)
+    private int id;
 
-    @Column(name = "date_start", nullable = false)
+    @Column(name = "start_date", nullable = false)
     private LocalDate dateStart;
 
-    @Column(name = "issue_organization", nullable = false, length = 70)
+    @Column(name = "issue_organization", nullable = false)
     private String issueOrganization;
 
-    @Column(name = "issue_code", length = 30)
-    private String issueCode;
-
     @Column(name = "is_active", nullable = false)
-    private Boolean isActive = false;
+    private Boolean isActive;
 
     @ManyToOne
     @JoinColumn(name = "document_type_id", nullable = false)
     private DocumentType documentType;
 
-    public Document(Integer id, LocalDate dateStart, String issueOrganization, String issueCode, Boolean isActive, DocumentType documentType) {
+    @ManyToMany(fetch = FetchType.LAZY,   cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE
+    },mappedBy = "document")
+    @JsonIgnore
+    private Set<Client> clients = new HashSet<>();
+
+    public Document(int id, LocalDate dateStart, String issueOrganization, Boolean isActive, DocumentType documentType) {
         this.id = id;
         this.dateStart = dateStart;
         this.issueOrganization = issueOrganization;
-        this.issueCode = issueCode;
         this.isActive = isActive;
         this.documentType = documentType;
     }

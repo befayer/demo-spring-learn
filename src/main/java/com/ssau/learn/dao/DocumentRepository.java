@@ -7,7 +7,5 @@ import java.rmi.server.UID;
 import java.util.Optional;
 
 public interface DocumentRepository extends JpaRepository<Document, UID> {
-
     Optional<Document> findDocumentById(int id);
-
 }

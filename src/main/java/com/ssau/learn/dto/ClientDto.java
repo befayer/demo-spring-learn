@@ -12,13 +12,13 @@ import java.util.Objects;
 @NoArgsConstructor
 public class ClientDto implements Serializable {
 
-    private Integer id;
+    private int id;
     private String firstName;
     private String secondName;
     private String patronymic;
     private LocalDate birthday;
 
-    public ClientDto(Integer id, String firstName, String secondName, String patronymic, LocalDate birthday) {
+    public ClientDto(int id, String firstName, String secondName, String patronymic, LocalDate birthday) {
         this.id = id;
         this.firstName = firstName;
         this.secondName = secondName;
@@ -26,7 +26,7 @@ public class ClientDto implements Serializable {
         this.birthday = birthday;
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
     public String getFirstName() {
