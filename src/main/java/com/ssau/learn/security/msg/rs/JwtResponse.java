@@ -1,6 +1,5 @@
 package com.ssau.learn.security.msg.rs;
 
-import com.ssau.learn.entity.Role;
 import lombok.Data;
 
 @Data
@@ -9,14 +8,14 @@ public class JwtResponse {
 
     private String type = "Bearer";
     private int id;
-    private String username;
+    private String login;
     private String email;
     private String role;
 
-    public JwtResponse(String accessToken, int id, String username, String email, String role) {
+    public JwtResponse(String accessToken, int id, String login, String email, String role) {
         this.token = accessToken;
         this.id = id;
-        this.username = username;
+        this.login = login;
         this.email = email;
         this.role = role;
     }

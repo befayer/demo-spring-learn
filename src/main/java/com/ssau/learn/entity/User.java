@@ -1,17 +1,21 @@
 package com.ssau.learn.entity;
 
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "user",
+@Table(name = "users",
         uniqueConstraints = {
                 @UniqueConstraint(columnNames = "login"),
                 @UniqueConstraint(columnNames = "email")
         })
 @Data
+@Getter
+@Setter
 @NoArgsConstructor
 public class User {
 

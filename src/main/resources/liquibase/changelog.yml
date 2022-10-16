@@ -5,7 +5,7 @@ databaseChangeLog:
        author:  befayer
        changes:
          -  createTable:
-              tableName:  user
+              tableName:  users
               columns:
                 -  column:
                      name:  id
@@ -91,7 +91,7 @@ databaseChangeLog:
                    constraints:
                      nullable: false
          - createTable:
-             tableName: document
+             tableName: documents
              columns:
                - column:
                    name: document_id
@@ -121,7 +121,7 @@ databaseChangeLog:
                    type: int
                    constraints:
                      nullable: false
-                     foreignKeyName: fk_document_document_type
+                     foreignKeyName: fk_documents_document_type
                      references: document_type(document_type_id)
          - createTable:
              tableName: client
@@ -168,8 +168,8 @@ databaseChangeLog:
                    constraints:
                      primaryKey: true
                      nullable: false
-                     foreignKeyName: fk_client_documents_document
-                     references: document(document_id)
+                     foreignKeyName: fk_client_documents_documents
+                     references: documents(document_id)
          - createTable:
              tableName: account
              columns:
@@ -210,7 +210,7 @@ databaseChangeLog:
                    type: int
                    constraints:
                      nullable: false
-                     foreignKeyName: fk_document_currency
+                     foreignKeyName: fk_documents_currency
                      references: currency(currency_id)
          - createTable:
              tableName: card

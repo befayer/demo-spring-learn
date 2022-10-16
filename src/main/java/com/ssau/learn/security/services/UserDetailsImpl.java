@@ -19,15 +19,15 @@ public class UserDetailsImpl implements UserDetails {
 
     private static final long serialVersionUID = 1L;
     private int id;
-    private String username;
+    private String login;
     private String email;
     private String password;
     private Collection<? extends GrantedAuthority> authorities;
 
-    public UserDetailsImpl(int id, String username, String email, String password,
+    public UserDetailsImpl(int id, String login, String email, String password,
                            Collection<? extends GrantedAuthority> authorities) {
         this.id = id;
-        this.username = username;
+        this.login = login;
         this.email = email;
         this.password = password;
         this.authorities = authorities;
@@ -58,7 +58,7 @@ public class UserDetailsImpl implements UserDetails {
 
     @Override
     public String getUsername() {
-        return username;
+        return login;
     }
 
     @Override

@@ -34,7 +34,7 @@ public class Client {
     @JoinTable(name = "client_documents",
     joinColumns = { @JoinColumn(name = "client_id")},
     inverseJoinColumns = { @JoinColumn(name = "document_id")})
-    private Set<Document> document = new HashSet<>();
+    private Set<Document> documents = new HashSet<>();
 
     public Client(String firstName, String secondName, String patronymic, LocalDate birthday){
         this.firstName = firstName;

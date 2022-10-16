@@ -16,22 +16,22 @@ public class BankService {
     private final BankRepository bankRepository;
     private final BankMapper bankMapper;
 
-    public BankDto getBank(Long id) {
+    public BankDto getBank(int id) {
         return bankMapper.mapToBankDto(
                 bankRepository.findById(id)
                         .orElse(new Bank())
         );
     }
 
-    public Optional<Bank> save(Bank bank) {
-        return Optional.of(bankRepository.save(bank));
+    public BankDto save(BankDto bankDto) {
+        return bankRepository.save(bankDto);
     }
 
-    public void delete(Long id) {
+    public void delete(int id) {
         bankRepository.deleteById(id);
     }
 
-    public long getBankByTerbankName(String terbankName) {
+    public int getBankByTerbankName(String terbankName) {
         Optional<Bank> bank = bankRepository.findBankByTerbankName(terbankName);
         if (bank.isEmpty()) {
             throw new RuntimeException("The bank with terbank name " + terbankName + " not found");
@@ -39,7 +39,7 @@ public class BankService {
         return bank.get().getId();
     }
 
-    public long getBankByBik(String bik) {
+    public int getBankByBik(String bik) {
         Optional<Bank> bank = bankRepository.findBankByBik(bik);
 
         if (bank.isEmpty()) {

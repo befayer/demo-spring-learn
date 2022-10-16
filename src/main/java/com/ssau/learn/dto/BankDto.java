@@ -13,8 +13,7 @@ public class BankDto implements Serializable {
     private String bik;
     private String city;
 
-    public BankDto(int id, String terbankName, String bik, String city) {
-        this.id = id;
+    public BankDto(String terbankName, String bik, String city) {
         this.terbankName = terbankName;
         this.bik = bik;
         this.city = city;

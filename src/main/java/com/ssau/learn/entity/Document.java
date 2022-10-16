@@ -16,7 +16,7 @@ import java.util.Set;
 @Entity
 @Data
 @NoArgsConstructor
-@Table(name = "document")
+@Table(name = "documents")
 public class Document {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,7 +39,7 @@ public class Document {
     @ManyToMany(fetch = FetchType.LAZY,   cascade = {
             CascadeType.PERSIST,
             CascadeType.MERGE
-    },mappedBy = "document")
+    },mappedBy = "documents")
     @JsonIgnore
     private Set<Client> clients = new HashSet<>();
 
