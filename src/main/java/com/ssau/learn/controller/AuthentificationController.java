@@ -4,7 +4,6 @@ import com.ssau.learn.dao.UserRepository;
 import com.ssau.learn.entity.Role;
 import com.ssau.learn.entity.User;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.web.bind.annotation.*;
 import com.ssau.learn.security.msg.rs.JwtResponse;
@@ -27,14 +26,10 @@ import com.ssau.learn.security.jwt.JwtUtils;
 @RequiredArgsConstructor
 public class AuthentificationController {
 
-    @Autowired
-    AuthenticationManager authenticationManager;
-    @Autowired
-    UserRepository userRepository;
-    @Autowired
-    PasswordEncoder encoder;
-    @Autowired
-    JwtUtils jwtUtils;
+    private final AuthenticationManager authenticationManager;
+    private final UserRepository userRepository;
+    private final PasswordEncoder encoder;
+    private final JwtUtils jwtUtils;
 
     @PostMapping("/login")
     public ResponseEntity<?> authenticateUser(@RequestBody LoginRequest loginRequest) {
@@ -54,7 +49,7 @@ public class AuthentificationController {
                 userDetails.getEmail(), role));
     }
 
-    @PostMapping(value = "/registered")
+    @PostMapping(value = "/registered", consumes = "application/json")
     public ResponseEntity<?> registerUser(@RequestBody SignupRequest signupRequest){
         if (userRepository.existsByLoginOrEmail(signupRequest.getLogin(), signupRequest.getEmail())){
             return ResponseEntity.badRequest().body(new MessageResponse("Invalid login or email"));

@@ -8,6 +8,8 @@ import liquibase.pro.packaged.L;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -23,12 +25,22 @@ public class BankService {
         );
     }
 
+    public List<BankDto> getBanks(String name){
+        List<BankDto> bankDtoList = new ArrayList<>();
+        List<Bank> banks = bankRepository.findAllByTerbankNameContaining(name);
+        for (Bank bank : banks) {
+            bankDtoList.add(bankMapper.mapToBankDto(bank));
+        }
+        return bankDtoList;
+    }
+
     public BankDto save(BankDto bankDto) {
-        return bankRepository.save(bankDto);
+        Bank bank = bankRepository.save(bankMapper.mapToBank(bankDto));
+        return bankMapper.mapToBankDto(bank);
     }
 
     public void delete(int id) {
-        bankRepository.deleteById(id);
+        bankRepository.deleteBankById(id);
     }
 
     public int getBankByTerbankName(String terbankName) {
