@@ -2,7 +2,7 @@ package com.ssau.learn.controller;
 
 
 import com.ssau.learn.dto.BankDto;
-import com.ssau.learn.service.BankService;
+import com.ssau.learn.service.BankServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.lang.NonNull;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -10,11 +10,12 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/api/v1/url/banks")
 @RequiredArgsConstructor
 public class BankController {
-    private final BankService bankService;
+    private final BankServiceImpl bankService;
     @GetMapping
     public List<BankDto> getBanks(){
         return bankService.getBanks();
