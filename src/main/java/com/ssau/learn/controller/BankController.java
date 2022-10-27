@@ -1,14 +1,9 @@
 package com.ssau.learn.controller;
 
-import com.ssau.learn.dao.BankRepository;
+
 import com.ssau.learn.dto.BankDto;
-import com.ssau.learn.entity.Role;
-import com.ssau.learn.entity.User;
-import com.ssau.learn.security.msg.rq.SignupRequest;
-import com.ssau.learn.security.msg.rs.MessageResponse;
 import com.ssau.learn.service.BankService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.lang.NonNull;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -21,8 +16,8 @@ import java.util.List;
 public class BankController {
     private final BankService bankService;
     @GetMapping
-    public List<BankDto> getBanks(@RequestParam(required = false) String name){
-        return bankService.getBanks(name);
+    public List<BankDto> getBanks(){
+        return bankService.getBanks();
     }
 
     @GetMapping("/{id}")

@@ -25,9 +25,9 @@ public class BankService {
         );
     }
 
-    public List<BankDto> getBanks(String name){
+    public List<BankDto> getBanks(){
         List<BankDto> bankDtoList = new ArrayList<>();
-        List<Bank> banks = bankRepository.findAllByTerbankNameContaining(name);
+        List<Bank> banks = bankRepository.findAll();
         for (Bank bank : banks) {
             bankDtoList.add(bankMapper.mapToBankDto(bank));
         }

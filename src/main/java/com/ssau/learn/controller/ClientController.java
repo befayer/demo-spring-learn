@@ -1,6 +1,5 @@
 package com.ssau.learn.controller;
 
-import com.ssau.learn.dto.CardDto;
 import com.ssau.learn.dto.ClientDto;
 import com.ssau.learn.service.ClientService;
 import lombok.RequiredArgsConstructor;
@@ -20,8 +19,8 @@ public class ClientController {
     public ClientDto getClient(@PathVariable int id){return clientService.getClient(id);}
 
     @GetMapping
-    public List<ClientDto> getClients(@RequestParam(required = false) String name){
-        return clientService.getClients(name);
+    public List<ClientDto> getClients(){
+        return clientService.getClients();
     }
 
     @PostMapping()

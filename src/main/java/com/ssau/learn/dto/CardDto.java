@@ -4,15 +4,13 @@ import com.ssau.learn.entity.Account;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.Objects;
 
 @Data
 @NoArgsConstructor
 public class CardDto implements Serializable {
-    private int id;
+    private Integer id;
     private Account accountNumber;
     private LocalDate dateStart;
     private LocalDate dateEnd;
@@ -20,8 +18,7 @@ public class CardDto implements Serializable {
     private Double balance;
     private boolean status;
 
-    public CardDto(int id, Account accountNumber, LocalDate dateStart, LocalDate dateEnd, Integer cvc, Double balance, boolean status) {
-        this.id = id;
+    public CardDto(Account accountNumber, LocalDate dateStart, LocalDate dateEnd, Integer cvc, Double balance, boolean status) {
         this.accountNumber = accountNumber;
         this.dateStart = dateStart;
         this.dateEnd = dateEnd;
@@ -30,7 +27,7 @@ public class CardDto implements Serializable {
         this.status = status;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
     public Account getAccountNumber() {

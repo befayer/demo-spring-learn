@@ -2,7 +2,6 @@ package com.ssau.learn.dto;
 
 import com.ssau.learn.entity.Bank;
 import com.ssau.learn.entity.Client;
-import liquibase.pro.packaged.L;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.util.Objects;
@@ -10,21 +9,20 @@ import java.util.Objects;
 @Data
 @NoArgsConstructor
 public class AccountDto {
-    private int id;
+    private Integer id;
     private Client client;
     private boolean accountStatus;
     private Double balance;
     private Bank bank;
 
-    public AccountDto(int id, Client client, boolean accountStatus, Double balance, Bank bank) {
-        this.id = id;
+    public AccountDto(Client client, boolean accountStatus, Double balance, Bank bank) {
         this.client = client;
         this.accountStatus = accountStatus;
         this.balance = balance;
         this.bank = bank;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 

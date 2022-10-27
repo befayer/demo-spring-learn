@@ -5,8 +5,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Getter
@@ -18,7 +16,7 @@ public class DocumentType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "document_type_id", nullable = false)
-    private int id;
+    private Integer id;
 
     @Column(name = "document_type_name", nullable = false)
     private String documentTypeName;

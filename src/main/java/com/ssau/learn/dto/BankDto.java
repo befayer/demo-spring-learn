@@ -8,7 +8,7 @@ import java.util.Objects;
 @Data
 @NoArgsConstructor
 public class BankDto implements Serializable {
-    private int id;
+    private Integer id;
     private String terbankName;
     private String bik;
     private String city;
@@ -23,7 +23,7 @@ public class BankDto implements Serializable {
     public int hashCode() {
         return Objects.hash(id, terbankName, bik, city);
     }
-    public int getId() {
+    public Integer getId() {
         return id;
     }
     public String getTerbankName() {

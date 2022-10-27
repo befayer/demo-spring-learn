@@ -11,15 +11,14 @@ import java.util.Objects;
 @Data
 @NoArgsConstructor
 public class DocumentDto implements Serializable {
-    private int id;
+    private Integer id;
     private LocalDate dateStart;
     private String issueOrganization;
     private String issueCode;
     private Boolean isActive;
     private DocumentType documentType;
 
-    public DocumentDto(int id, LocalDate dateStart, String issueOrganization, String issueCode, Boolean isActive, DocumentType documentType) {
-        this.id = id;
+    public DocumentDto(LocalDate dateStart, String issueOrganization, String issueCode, Boolean isActive, DocumentType documentType) {
         this.dateStart = dateStart;
         this.issueOrganization = issueOrganization;
         this.issueCode = issueCode;
@@ -27,7 +26,7 @@ public class DocumentDto implements Serializable {
         this.documentType = documentType;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
     public LocalDate getDateStart() {

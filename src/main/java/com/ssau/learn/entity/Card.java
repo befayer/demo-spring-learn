@@ -2,11 +2,9 @@ package com.ssau.learn.entity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
 import java.time.LocalDate;
 @Entity
 @Getter
@@ -17,7 +15,7 @@ public class Card {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "card_number", nullable = false)
-    private int id;
+    private Integer id;
     @Column(name = "date_start", nullable = false)
     private LocalDate dateStart;
     @Column(name = "date_end", nullable = false)

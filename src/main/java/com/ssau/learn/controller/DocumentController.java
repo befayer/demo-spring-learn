@@ -1,6 +1,5 @@
 package com.ssau.learn.controller;
 
-import com.ssau.learn.dto.ClientDto;
 import com.ssau.learn.dto.DocumentDto;
 import com.ssau.learn.service.DocumentService;
 import lombok.RequiredArgsConstructor;
@@ -20,8 +19,8 @@ public class DocumentController {
     public DocumentDto getDocument(@PathVariable int id){return documentService.getDocument(id);}
 
     @GetMapping
-    public List<DocumentDto> getDocuments(@RequestParam(required = false) String name){
-        return documentService.getDocuments(name);
+    public List<DocumentDto> getDocuments(){
+        return documentService.getDocuments();
     }
 
     @PostMapping()

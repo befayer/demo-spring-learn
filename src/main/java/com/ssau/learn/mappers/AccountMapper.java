@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class AccountMapper {
-    public AccountDto maoToAccountDto(Account account){
+    public AccountDto mapToAccountDto(Account account){
         AccountDto accountDto = new AccountDto();
         accountDto.setId(account.getId());
         accountDto.setClient(account.getClient());

@@ -6,9 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.io.Serializable;
-import java.math.BigDecimal;
-import java.util.List;
 
 @Entity
 @Table(name = "account", uniqueConstraints = {
@@ -23,7 +20,7 @@ public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "account_number", nullable = false)
-    private int id;
+    private Integer id;
     @Column(name = "status")
     private boolean accountStatus = true;
     @Column(name = "balance")

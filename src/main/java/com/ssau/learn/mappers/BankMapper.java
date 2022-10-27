@@ -2,7 +2,6 @@ package com.ssau.learn.mappers;
 
 import com.ssau.learn.dto.BankDto;
 import com.ssau.learn.entity.Bank;
-import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service

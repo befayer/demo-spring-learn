@@ -40,6 +40,6 @@ public class CardService {
     }
 
     public void delete(int id) {
-        cardMapper.deleteCardById(id);
+        cardRepository.deleteCardById(id);
     }
 }

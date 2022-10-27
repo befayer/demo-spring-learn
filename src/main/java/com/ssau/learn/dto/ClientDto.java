@@ -1,6 +1,5 @@
 package com.ssau.learn.dto;
 
-import com.ssau.learn.entity.Account;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -12,21 +11,20 @@ import java.util.Objects;
 @NoArgsConstructor
 public class ClientDto implements Serializable {
 
-    private int id;
+    private Integer id;
     private String firstName;
     private String secondName;
     private String patronymic;
     private LocalDate birthday;
 
-    public ClientDto(int id, String firstName, String secondName, String patronymic, LocalDate birthday) {
-        this.id = id;
+    public ClientDto(String firstName, String secondName, String patronymic, LocalDate birthday) {
         this.firstName = firstName;
         this.secondName = secondName;
         this.patronymic = patronymic;
         this.birthday = birthday;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
     public String getFirstName() {

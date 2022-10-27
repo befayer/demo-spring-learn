@@ -1,6 +1,5 @@
 package com.ssau.learn.controller;
 
-import com.ssau.learn.dto.AccountDto;
 import com.ssau.learn.dto.CardDto;
 import com.ssau.learn.service.CardService;
 import lombok.RequiredArgsConstructor;

@@ -1,7 +1,6 @@
 package com.ssau.learn.controller;
 
 import com.ssau.learn.dto.AccountDto;
-import com.ssau.learn.dto.BankDto;
 import com.ssau.learn.service.AccountService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -19,8 +18,8 @@ public class AccountController {
     public AccountDto getAccount(@PathVariable int id){return accountService.getAccount(id);}
 
     @GetMapping
-    public List<AccountDto> getAccounts(@RequestParam(required = false) String name){
-        return accountService.getAccounts(name);
+    public List<AccountDto> getAccounts(){
+        return accountService.getAccounts();
     }
 
     @PostMapping()
