@@ -1,7 +1,7 @@
 package com.ssau.learn.controller;
 
 import com.ssau.learn.dto.BankDto;
-import com.ssau.learn.service.BankServiceImpl;
+import com.ssau.learn.service.BankService;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 
@@ -13,7 +13,7 @@ public class BankControllerTest {
 
     @Test
     public void testCreate(){
-        BankServiceImpl bankService = mock(BankServiceImpl.class);
+        BankService bankService = mock(BankService.class);
         BankDto testBank = new BankDto();
         testBank.setTerbankName("Test bank");
         testBank.setId(1);

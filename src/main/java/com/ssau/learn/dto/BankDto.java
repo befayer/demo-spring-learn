@@ -1,12 +1,14 @@
 package com.ssau.learn.dto;
 
 import lombok.*;
+import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
 import java.util.Objects;
 
 @Data
 @NoArgsConstructor
+@Component
 public class BankDto implements Serializable {
     private Integer id;
     private String terbankName;

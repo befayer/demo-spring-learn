@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.*;
 
@@ -11,7 +12,7 @@ import java.util.*;
 @Data
 @NoArgsConstructor
 @Table(name = "client")
-public class Client {
+public class Client implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,5 +42,6 @@ public class Client {
         this.secondName = secondName;
         this.patronymic = patronymic;
         this.birthday = birthday;
+        this.documents = new HashSet<>();
     }
 }

@@ -7,7 +7,9 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Optional;
 
 public interface CardRepository extends JpaRepository<Card, Integer> {
+
     Optional<Card> findCardById(int id);
+
     @Transactional
     void deleteCardById(int id);
 }

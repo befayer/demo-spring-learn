@@ -14,18 +14,4 @@ public class DemoApplication {
 		SpringApplication.run(DemoApplication.class, args);
 	}
 
-
-	/*@Bean
-	CommandLineRunner runner(BankRepository repository){
-		return args -> {
-			Bank bankSamara = new Bank("0436016070","ПОВОЛЖСКИЙ БАНК ПАО СБЕРБАНК", "Самара");
-			if (repository.findByID("043601607") == null){
-				repository.save(bankSamara);
-			}
-			//repository.insert(bankSamara);
-			System.out.println(repository.existsById("043601607"));
-
-		};
-
-	}*/
 }

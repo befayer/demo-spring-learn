@@ -17,8 +17,7 @@ public class DocumentTypeMapper {
     public DocumentType mapToDocumentType(DocumentTypeDto documentTypeDto){
         DocumentType documentType = new DocumentType();
         documentType.setId(documentTypeDto.getId());
-        documentType.setDocumentTypeName(documentType.getDocumentTypeName());
+        documentType.setDocumentTypeName(documentTypeDto.getDocumentTypeName());
         return documentType;
     }
-
 }

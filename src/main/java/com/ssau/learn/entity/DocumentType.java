@@ -1,17 +1,16 @@
 package com.ssau.learn.entity;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Objects;
 
 @Entity
-@Getter
-@Setter
-@NoArgsConstructor
+@Data
+@RequiredArgsConstructor
 @Table(name = "document_type")
-public class DocumentType {
+public class DocumentType implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,5 +22,18 @@ public class DocumentType {
 
     public DocumentType(String documentTypeName){
         this.documentTypeName = documentTypeName;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        DocumentType that = (DocumentType) o;
+        return Objects.equals(id, that.id) && Objects.equals(documentTypeName, that.documentTypeName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, documentTypeName);
     }
 }

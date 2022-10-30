@@ -15,14 +15,13 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class CardService {
+
     private final CardRepository cardRepository;
+
     private final CardMapper cardMapper;
 
     public CardDto getCard(int id){
-        return cardMapper.mapToCardDto(
-                cardRepository.findCardById(id)
-                        .orElse(new Card())
-        );
+        return cardMapper.mapToCardDto(cardRepository.findCardById(id).orElseThrow());
     }
 
     public List<CardDto> getCards(){

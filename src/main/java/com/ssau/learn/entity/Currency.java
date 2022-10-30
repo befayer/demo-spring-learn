@@ -4,12 +4,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Data
 @NoArgsConstructor
 @Table(name = "currency")
-public class Currency {
+public class Currency  implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

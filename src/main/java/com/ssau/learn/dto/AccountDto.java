@@ -2,24 +2,30 @@ package com.ssau.learn.dto;
 
 import com.ssau.learn.entity.Bank;
 import com.ssau.learn.entity.Client;
+import com.ssau.learn.entity.Currency;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.io.Serializable;
 import java.util.Objects;
 
 @Data
 @NoArgsConstructor
-public class AccountDto {
+public class AccountDto implements Serializable {
+
     private Integer id;
     private Client client;
-    private boolean accountStatus;
+    private Boolean accountStatus;
     private Double balance;
-    private Bank bank;
+    private BankDto bank;
+    private CurrencyDto currency; //или CurrencyDto?
 
-    public AccountDto(Client client, boolean accountStatus, Double balance, Bank bank) {
+    public AccountDto(Client client, Boolean accountStatus, Double balance, BankDto bank, CurrencyDto currency) {
         this.client = client;
         this.accountStatus = accountStatus;
         this.balance = balance;
         this.bank = bank;
+        this.currency = currency;
     }
 
     public Integer getId() {
@@ -38,8 +44,12 @@ public class AccountDto {
         return balance;
     }
 
-    public Bank getBank() {
+    public BankDto getBank() {
         return bank;
+    }
+
+    public CurrencyDto getCurrency() {
+        return currency;
     }
 
     @Override

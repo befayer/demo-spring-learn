@@ -8,11 +8,9 @@ import java.util.List;
 import java.util.Optional;
 
 public interface BankRepository extends JpaRepository<Bank, Integer> {
-    List<Bank> findAllByTerbankNameContaining(String terbankName);
     Optional<Bank> findBankByTerbankName(String terbankName);
     Optional<Bank> findBankByBik(String bik);
     Optional<Bank> findById(int id);
     @Transactional
     void deleteBankById(int id);
-    Boolean existsByBikOrTerbankName(String bik, String terbankName);
 }

@@ -1,23 +1,22 @@
 package com.ssau.learn.dto;
 
-import com.ssau.learn.entity.Document;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.stereotype.Component;
+
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 @Data
 @NoArgsConstructor
+@Component
 public class DocumentTypeDto implements Serializable {
+
     private Integer id;
     private String documentTypeName;
-    private List<Document> documentList;
 
     public DocumentTypeDto(String documentTypeName) {
         this.documentTypeName = documentTypeName;
-        documentList = new ArrayList<>();
     }
 
     public Integer getId() {
@@ -28,8 +27,8 @@ public class DocumentTypeDto implements Serializable {
         return documentTypeName;
     }
 
-    public List<Document> getDocumentList() {
-        return documentList;
+    public void setDocumentTypeName(String documentTypeName){
+        this.documentTypeName = documentTypeName;
     }
 
     @Override
@@ -37,7 +36,6 @@ public class DocumentTypeDto implements Serializable {
         return "DocumentTypeDto{" +
                 "id=" + id +
                 ", documentTypeName='" + documentTypeName + '\'' +
-                ", documentList=" + documentList +
                 '}';
     }
 
@@ -46,11 +44,11 @@ public class DocumentTypeDto implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         DocumentTypeDto that = (DocumentTypeDto) o;
-        return Objects.equals(id, that.id) && Objects.equals(documentTypeName, that.documentTypeName) && Objects.equals(documentList, that.documentList);
+        return Objects.equals(id, that.id) && Objects.equals(documentTypeName, that.documentTypeName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, documentTypeName, documentList);
+        return Objects.hash(id, documentTypeName);
     }
 }

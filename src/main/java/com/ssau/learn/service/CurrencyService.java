@@ -2,6 +2,7 @@ package com.ssau.learn.service;
 
 import com.ssau.learn.dao.CurrencyRepository;
 import com.ssau.learn.dto.CurrencyDto;
+import com.ssau.learn.entity.Bank;
 import com.ssau.learn.entity.Currency;
 import com.ssau.learn.mappers.CurrencyMapper;
 import lombok.RequiredArgsConstructor;
@@ -39,6 +40,11 @@ public class CurrencyService {
 
     public void delete(int id) {
         currencyRepository.deleteCurrencyById(id);
+    }
+
+    public int getCurrencyByCurrencyName(String currencyName) {
+        Currency currency = currencyRepository.findCurrencyByCurrencyName(currencyName).orElseThrow();
+        return currency.getId();
     }
 
 }

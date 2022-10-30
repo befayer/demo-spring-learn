@@ -1,29 +1,31 @@
 package com.ssau.learn.dto;
 
-import com.ssau.learn.entity.DocumentType;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Data
 @NoArgsConstructor
 public class DocumentDto implements Serializable {
+
     private Integer id;
     private LocalDate dateStart;
     private String issueOrganization;
-    private String issueCode;
     private Boolean isActive;
-    private DocumentType documentType;
+    private DocumentTypeDto documentTypeDto;
+    private Set<ClientDto> clientDtoSet = new HashSet<>();
 
-    public DocumentDto(LocalDate dateStart, String issueOrganization, String issueCode, Boolean isActive, DocumentType documentType) {
+    public DocumentDto(LocalDate dateStart, String issueOrganization, Boolean isActive, DocumentTypeDto documentType) {
         this.dateStart = dateStart;
         this.issueOrganization = issueOrganization;
-        this.issueCode = issueCode;
         this.isActive = isActive;
-        this.documentType = documentType;
+        this.documentTypeDto = documentType;
+        this.clientDtoSet = new HashSet<>();
     }
 
     public Integer getId() {
@@ -35,15 +37,15 @@ public class DocumentDto implements Serializable {
     public String getIssueOrganization() {
         return issueOrganization;
     }
-    public String getIssueCode() {
-        return issueCode;
-    }
     public Boolean getActive() {
         return isActive;
     }
-    public DocumentType getDocumentType() {
-        return documentType;
+    public DocumentTypeDto getDocumentTypeDto() {
+        return documentTypeDto;
     }
+    public Set<ClientDto> getClients(){return clientDtoSet;}
+
+    //нужен ли public void addClients(ClientDto clientDto)?
 
     @Override
     public String toString() {
@@ -51,9 +53,8 @@ public class DocumentDto implements Serializable {
                 "id=" + id +
                 ", dateStart=" + dateStart +
                 ", issueOrganization='" + issueOrganization + '\'' +
-                ", issueCode='" + issueCode + '\'' +
                 ", isActive=" + isActive +
-                ", documentType=" + documentType +
+                ", documentType=" + documentTypeDto +
                 '}';
     }
 
@@ -64,12 +65,12 @@ public class DocumentDto implements Serializable {
         DocumentDto that = (DocumentDto) o;
         return Objects.equals(id, that.id) && Objects.equals(dateStart, that.dateStart) &&
                 Objects.equals(issueOrganization, that.issueOrganization) &&
-                Objects.equals(issueCode, that.issueCode) && Objects.equals(isActive, that.isActive) &&
-                Objects.equals(documentType, that.documentType);
+                Objects.equals(isActive, that.isActive) &&
+                Objects.equals(documentTypeDto, that.documentTypeDto);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, dateStart, issueOrganization, issueCode, isActive, documentType);
+        return Objects.hash(id, dateStart, issueOrganization, isActive, documentTypeDto);
     }
 }

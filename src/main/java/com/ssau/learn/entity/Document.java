@@ -1,10 +1,12 @@
 package com.ssau.learn.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.ssau.learn.dto.DocumentTypeDto;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
@@ -13,7 +15,7 @@ import java.util.Set;
 @Data
 @NoArgsConstructor
 @Table(name = "documents")
-public class Document {
+public class Document  implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "document_id", nullable = false)
@@ -28,8 +30,8 @@ public class Document {
     @Column(name = "is_active", nullable = false)
     private Boolean isActive;
 
-    @ManyToOne
-    @JoinColumn(name = "document_type_id", nullable = false)
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "document_type_id")
     private DocumentType documentType;
 
     @ManyToMany(fetch = FetchType.LAZY,   cascade = {
@@ -39,11 +41,11 @@ public class Document {
     @JsonIgnore
     private Set<Client> clients = new HashSet<>();
 
-    public Document(int id, LocalDate dateStart, String issueOrganization, Boolean isActive, DocumentType documentType) {
-        this.id = id;
+    public Document(LocalDate dateStart, String issueOrganization, Boolean isActive, DocumentType documentType) {
         this.dateStart = dateStart;
         this.issueOrganization = issueOrganization;
         this.isActive = isActive;
         this.documentType = documentType;
+        this.clients = new HashSet<>();
     }
 }

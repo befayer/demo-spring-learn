@@ -10,16 +10,17 @@ import java.time.LocalDate;
 @Data
 @NoArgsConstructor
 public class CardDto implements Serializable {
+
     private Integer id;
-    private Account accountNumber;
+    private AccountDto account;
     private LocalDate dateStart;
     private LocalDate dateEnd;
     private Integer cvc;
     private Double balance;
     private boolean status;
 
-    public CardDto(Account accountNumber, LocalDate dateStart, LocalDate dateEnd, Integer cvc, Double balance, boolean status) {
-        this.accountNumber = accountNumber;
+    public CardDto(AccountDto account, LocalDate dateStart, LocalDate dateEnd, Integer cvc, Double balance, boolean status) {
+        this.account = account;
         this.dateStart = dateStart;
         this.dateEnd = dateEnd;
         this.cvc = cvc;
@@ -30,8 +31,8 @@ public class CardDto implements Serializable {
     public Integer getId() {
         return id;
     }
-    public Account getAccountNumber() {
-        return accountNumber;
+    public AccountDto getAccount() {
+        return account;
     }
     public LocalDate getDateStart() {
         return dateStart;
@@ -45,12 +46,13 @@ public class CardDto implements Serializable {
     public Double getBalance() {
         return balance;
     }
+    public boolean getAccountStatus(){return status;}
 
     @Override
     public String toString() {
         return "CardDto{" +
                 "id=" + id +
-                ", accountNumber=" + accountNumber +
+                ", accountNumber=" + account +
                 ", dateStart=" + dateStart +
                 ", dateEnd=" + dateEnd +
                 ", cvc=" + cvc +

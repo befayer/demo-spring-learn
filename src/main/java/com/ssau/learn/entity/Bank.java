@@ -4,13 +4,14 @@ import lombok.*;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
 @Data
 @RequiredArgsConstructor
 @Table(name = "bank")
-public class Bank {
+public class Bank implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

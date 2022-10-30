@@ -9,6 +9,7 @@ import java.util.Objects;
 @Data
 @NoArgsConstructor
 public class CurrencyDto implements Serializable {
+
     private Integer id;
     private String currencyName;
 

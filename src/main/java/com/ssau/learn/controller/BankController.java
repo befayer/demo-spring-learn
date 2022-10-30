@@ -2,7 +2,7 @@ package com.ssau.learn.controller;
 
 
 import com.ssau.learn.dto.BankDto;
-import com.ssau.learn.service.BankServiceImpl;
+import com.ssau.learn.service.BankService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.lang.NonNull;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -15,7 +15,7 @@ import java.util.List;
 @RequestMapping("/api/v1/url/banks")
 @RequiredArgsConstructor
 public class BankController {
-    private final BankServiceImpl bankService;
+    private final BankService bankService;
     @GetMapping
     public List<BankDto> getBanks(){
         return bankService.getBanks();
