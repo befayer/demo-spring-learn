@@ -10,7 +10,7 @@ import com.ssau.learn.security.msg.rs.JwtResponse;
 import com.ssau.learn.security.msg.rq.LoginRequest;
 import com.ssau.learn.security.msg.rq.SignupRequest;
 import com.ssau.learn.security.msg.rs.MessageResponse;
-import com.ssau.learn.security.services.UserDetailsImpl;
+import com.ssau.learn.security.msg.services.UserDetailsImpl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -22,13 +22,16 @@ import com.ssau.learn.security.jwt.JwtUtils;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
-@RequestMapping("/api/v1/auth")
+@RequestMapping("/api/auth")
 @RequiredArgsConstructor
 public class AuthentificationController {
 
     private final AuthenticationManager authenticationManager;
+
     private final UserRepository userRepository;
+
     private final PasswordEncoder encoder;
+
     private final JwtUtils jwtUtils;
 
     @PostMapping("/login")
@@ -49,7 +52,7 @@ public class AuthentificationController {
                 userDetails.getEmail(), role));
     }
 
-    @PostMapping(value = "/registered", consumes = "application/json")
+    @PostMapping(value = "/register", consumes = "application/json")
     public ResponseEntity<?> registerUser(@RequestBody SignupRequest signupRequest){
         if (userRepository.existsByLoginOrEmail(signupRequest.getLogin(), signupRequest.getEmail())){
             return ResponseEntity.badRequest().body(new MessageResponse("Invalid login or email"));

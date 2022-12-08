@@ -3,6 +3,7 @@ package com.ssau.learn.service;
 import com.ssau.learn.dao.BankRepository;
 import com.ssau.learn.dto.BankDto;
 import com.ssau.learn.entity.Bank;
+import com.ssau.learn.exception.BankNotFoundException;
 import com.ssau.learn.mappers.BankMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -18,7 +19,8 @@ public class BankService{
     private final BankMapper bankMapper;
 
     public BankDto getBank(int id) {
-        return bankMapper.mapToBankDto(bankRepository.findById(id).orElseThrow());
+        return bankMapper.mapToBankDto(bankRepository.findById(id)
+                .orElseThrow(() -> new BankNotFoundException("Bank with id " + id + " was not found")));
     }
 
     public List<BankDto> getBanks() {

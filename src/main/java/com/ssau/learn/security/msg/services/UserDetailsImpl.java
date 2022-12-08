@@ -1,4 +1,4 @@
-package com.ssau.learn.security.services;
+package com.ssau.learn.security.msg.services;
 
 import com.ssau.learn.entity.User;
 import lombok.Data;

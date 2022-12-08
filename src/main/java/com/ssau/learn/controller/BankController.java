@@ -12,10 +12,12 @@ import java.util.List;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
-@RequestMapping("/api/v1/url/banks")
+@RequestMapping("/api/banks")
 @RequiredArgsConstructor
 public class BankController {
+
     private final BankService bankService;
+
     @GetMapping
     public List<BankDto> getBanks(){
         return bankService.getBanks();
@@ -27,20 +29,20 @@ public class BankController {
     }
 
     @PostMapping()
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     public BankDto create(@RequestBody BankDto bankDto){
        return bankService.save(bankDto);
     }
 
     @PutMapping("/{id}")
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     public BankDto update(@PathVariable int id, @RequestBody BankDto bankDto){
         bankDto.setId(id);
         return bankService.save(bankDto);
     }
 
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     public void delete(@PathVariable int id){
         bankService.delete(id);
     }

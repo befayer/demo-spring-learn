@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/url/clients")
+@RequestMapping("/api/url/clients")
 @RequiredArgsConstructor
 public class ClientController {
 

@@ -1,0 +1,59 @@
+<h1>Банки</h1>
+<input type="button" value="Добавить банк" class="btn btn-default" (click)="addBank()" />
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <td>Id</td>
+    <td>Название</td>
+    <td>БИК</td>
+    <td>Город</td>
+    <td></td>
+    <td></td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let bank of banks">
+    <ng-template [ngTemplateOutlet]="loadTemplate(bank)"
+                 [ngTemplateOutletContext]="{ $implicit: bank}">
+    </ng-template>
+  </tr>
+  </tbody>
+</table>
+<div>{{statusMessage}}</div>
+
+
+<!--шаблон для чтения-->
+<ng-template #readOnlyTemplate let-bank>
+  <td>{{bank.id}}</td>
+  <td>{{bank.terbankName}}</td>
+  <td>{{bank.bik}}</td>
+  <td>{{bank.city}}</td>
+  <td>
+    <input type="button" value="Изменить" class="btn btn-default" (click)="editBank(bank)" />
+  </td>
+  <td>
+    <input type="button" value="Удалить" (click)="deleteBank(bank)" class="btn btn-danger" />
+  </td>
+</ng-template>
+
+<!--шаблон для редактирования-->
+<ng-template #editTemplate>
+  <td>
+    <!--<input type="number" [(ngModel)]="editedBank.id" readonly disabled class="form-control" />-->
+  </td>
+  <td>
+    <input type="text" [(ngModel)]="editedBank.terbankName" class="form-control" />
+  </td>
+  <td>
+    <input type="text" [(ngModel)]="editedBank.bik" class="form-control" />
+  </td>
+  <td>
+    <input type="text" [(ngModel)]="editedBank.city" class="form-control" />
+  </td>
+  <td>
+    <input type="button" value="Сохранить" (click)="saveBank()" class="btn btn-success" />
+  </td>
+  <td>
+    <input type="button" value="Отмена" (click)="cancel()" class="btn btn-warning" />
+  </td>
+</ng-template>

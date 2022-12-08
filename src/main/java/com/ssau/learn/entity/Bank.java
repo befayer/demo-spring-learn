@@ -17,10 +17,13 @@ public class Bank implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "terbank_id", nullable = false)
     private Integer id;
+
     @Column(name = "terbank_name", nullable = false)
     private String terbankName;
+
     @Column(name = "bik", nullable = false)
     private String bik;
+
     @Column(name = "city", nullable = false)
     private String city;
 

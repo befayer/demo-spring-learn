@@ -1,6 +1,6 @@
 package com.ssau.learn.security.jwt;
 
-import com.ssau.learn.security.services.UserDetailsImpl;
+import com.ssau.learn.security.msg.services.UserDetailsImpl;
 import io.jsonwebtoken.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

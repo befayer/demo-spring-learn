@@ -11,7 +11,7 @@ import java.util.List;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
-@RequestMapping("/api/v1/url/document_types")
+@RequestMapping("/api/url/document_types")
 @RequiredArgsConstructor
 public class DocumentTypeController {
 

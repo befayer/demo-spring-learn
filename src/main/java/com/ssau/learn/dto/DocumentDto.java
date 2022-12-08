@@ -14,10 +14,15 @@ import java.util.Set;
 public class DocumentDto implements Serializable {
 
     private Integer id;
+
     private LocalDate dateStart;
+
     private String issueOrganization;
+
     private Boolean isActive;
+
     private DocumentTypeDto documentTypeDto;
+
     private Set<ClientDto> clientDtoSet = new HashSet<>();
 
     public DocumentDto(LocalDate dateStart, String issueOrganization, Boolean isActive, DocumentTypeDto documentType) {
@@ -31,18 +36,23 @@ public class DocumentDto implements Serializable {
     public Integer getId() {
         return id;
     }
+
     public LocalDate getDateStart() {
         return dateStart;
     }
+
     public String getIssueOrganization() {
         return issueOrganization;
     }
+
     public Boolean getActive() {
         return isActive;
     }
+
     public DocumentTypeDto getDocumentTypeDto() {
         return documentTypeDto;
     }
+
     public Set<ClientDto> getClients(){return clientDtoSet;}
 
     //нужен ли public void addClients(ClientDto clientDto)?

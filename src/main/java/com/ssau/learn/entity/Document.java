@@ -16,6 +16,7 @@ import java.util.Set;
 @NoArgsConstructor
 @Table(name = "documents")
 public class Document  implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "document_id", nullable = false)

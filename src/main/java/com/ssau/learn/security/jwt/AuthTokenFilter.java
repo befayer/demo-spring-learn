@@ -1,6 +1,6 @@
 package com.ssau.learn.security.jwt;
 
-import com.ssau.learn.security.services.UserDetailsServiceImpl;
+import com.ssau.learn.security.msg.services.UserDetailsServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

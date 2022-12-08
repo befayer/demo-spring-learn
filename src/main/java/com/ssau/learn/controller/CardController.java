@@ -9,9 +9,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/url/cards")
+@RequestMapping("/api/url/cards")
 @RequiredArgsConstructor
 public class CardController {
+
     private final CardService cardService;
 
     @GetMapping("/{id}")

@@ -10,9 +10,13 @@ import java.util.Objects;
 @NoArgsConstructor
 @Component
 public class BankDto implements Serializable {
+
     private Integer id;
+
     private String terbankName;
+
     private String bik;
+
     private String city;
 
     public BankDto(String terbankName, String bik, String city) {
