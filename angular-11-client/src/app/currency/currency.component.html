@@ -1,0 +1,49 @@
+<h1>Валюты</h1>
+<input type="button" value="Добавить валюту" class="btn btn-default" (click)="addCurrency()" />
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <td>Id</td>
+    <td>Название</td>
+    <td></td>
+    <td></td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let currency of currencies">
+    <ng-template [ngTemplateOutlet]="loadTemplate(currency)"
+                 [ngTemplateOutletContext]="{ $implicit: currency}">
+    </ng-template>
+  </tr>
+  </tbody>
+</table>
+<div>{{statusMessage}}</div>
+
+
+<!--шаблон для чтения-->
+<ng-template #readOnlyTemplate let-currency>
+  <td>{{currency.id}}</td>
+  <td>{{currency.currencyName}}</td>
+  <td>
+    <input type="button" value="Изменить" class="btn btn-default" (click)="editCurrency(currency)" />
+  </td>
+  <td>
+    <input type="button" value="Удалить" (click)="deleteCurrency(currency)" class="btn btn-danger" />
+  </td>
+</ng-template>
+
+<!--шаблон для редактирования-->
+<ng-template #editTemplate>
+  <td>
+    <!--<input type="number" [(ngModel)]="editedBank.id" readonly disabled class="form-control" />-->
+  </td>
+  <td>
+    <input type="text" [(ngModel)]="editedCurrency.currencyName" class="form-control" />
+  </td>
+  <td>
+    <input type="button" value="Сохранить" (click)="saveCurrency()" class="btn btn-success" />
+  </td>
+  <td>
+    <input type="button" value="Отмена" (click)="cancel()" class="btn btn-warning" />
+  </td>
+</ng-template>

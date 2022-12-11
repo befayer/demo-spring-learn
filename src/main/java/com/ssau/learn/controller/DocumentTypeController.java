@@ -11,7 +11,7 @@ import java.util.List;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
-@RequestMapping("/api/url/document_types")
+@RequestMapping("/api/document-types")
 @RequiredArgsConstructor
 public class DocumentTypeController {
 
@@ -26,20 +26,20 @@ public class DocumentTypeController {
     }
 
     @PostMapping()
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     public DocumentTypeDto create(@RequestBody DocumentTypeDto documentTypeDto){
         return documentTypeService.save(documentTypeDto);
     }
 
     @PutMapping("/{id}")
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     public DocumentTypeDto update(@PathVariable int id, @RequestBody DocumentTypeDto documentTypeDto){
         documentTypeDto.setId(id);
         return documentTypeService.save(documentTypeDto);
     }
 
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     public void delete(@PathVariable int id){
         documentTypeService.delete(id);
     }

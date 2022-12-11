@@ -1,0 +1,61 @@
+<h1>Документы</h1>
+<input type="button" value="Добавить документ" class="btn btn-default" (click)="addDocument()" />
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <td>Id</td>
+    <td>Дата начала действия</td>
+    <td>Организация</td>
+    <td>Активность</td>
+    <td>Тип документа</td>
+    <td></td>
+    <td></td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let document of documents">
+    <ng-template [ngTemplateOutlet]="loadTemplate(document)"
+                 [ngTemplateOutletContext]="{ $implicit: document}">
+    </ng-template>
+  </tr>
+  </tbody>
+</table>
+<div>{{statusMessage}}</div>
+
+
+<!--шаблон для чтения-->
+<ng-template #readOnlyTemplate let-document>
+  <td>{{document.id}}</td>
+  <td>{{document.documentTypeName}}</td>
+  <td>
+    <input type="button" value="Изменить" class="btn btn-default" (click)="editDocument(document)" />
+  </td>
+  <td>
+    <input type="button" value="Удалить" (click)="deleteDocument(document)" class="btn btn-danger" />
+  </td>
+</ng-template>
+
+<!--шаблон для редактирования-->
+<ng-template #editTemplate>
+  <td>
+    <!--<input type="number" [(ngModel)]="editedBank.id" readonly disabled class="form-control" />-->
+  </td>
+  <td>
+    <input type="text" [(ngModel)]="editedDocument.dateStart" class="form-control" />
+  </td>
+  <td>
+    <input type="text" [(ngModel)]="editedDocument.issueOrganization" class="form-control" />
+  </td>
+  <td>
+    <input type="text" [(ngModel)]="editedDocument.isActive" class="form-control" />
+  </td>
+  <td>
+    <input type="text" [(ngModel)]="editedDocument.documentTypeName" class="form-control" />
+  </td>
+  <td>
+    <input type="button" value="Сохранить" (click)="saveDocument()" class="btn btn-success" />
+  </td>
+  <td>
+    <input type="button" value="Отмена" (click)="cancel()" class="btn btn-warning" />
+  </td>
+</ng-template>

@@ -1,0 +1,49 @@
+<h1>Типы документов</h1>
+<input type="button" value="Добавить тип документа" class="btn btn-default" (click)="addDocumentType()" />
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <td>Id</td>
+    <td>Тип</td>
+    <td></td>
+    <td></td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let documentType of documentTypes">
+    <ng-template [ngTemplateOutlet]="loadTemplate(documentType)"
+                 [ngTemplateOutletContext]="{ $implicit: documentType}">
+    </ng-template>
+  </tr>
+  </tbody>
+</table>
+<div>{{statusMessage}}</div>
+
+
+<!--шаблон для чтения-->
+<ng-template #readOnlyTemplate let-documentType>
+  <td>{{documentType.id}}</td>
+  <td>{{documentType.documentTypeName}}</td>
+  <td>
+    <input type="button" value="Изменить" class="btn btn-default" (click)="editDocumentType(documentType)" />
+  </td>
+  <td>
+    <input type="button" value="Удалить" (click)="deleteDocumentType(documentType)" class="btn btn-danger" />
+  </td>
+</ng-template>
+
+<!--шаблон для редактирования-->
+<ng-template #editTemplate>
+  <td>
+    <!--<input type="number" [(ngModel)]="editedBank.id" readonly disabled class="form-control" />-->
+  </td>
+  <td>
+    <input type="text" [(ngModel)]="editedDocumentType.documentTypeName" class="form-control" />
+  </td>
+  <td>
+    <input type="button" value="Сохранить" (click)="saveDocumentType()" class="btn btn-success" />
+  </td>
+  <td>
+    <input type="button" value="Отмена" (click)="cancel()" class="btn btn-warning" />
+  </td>
+</ng-template>
