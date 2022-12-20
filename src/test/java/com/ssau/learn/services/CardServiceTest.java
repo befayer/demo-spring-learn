@@ -55,7 +55,7 @@ public class CardServiceTest {
         documentDto.setDateStart(LocalDate.now());
         documentDto.setIssueOrganization("Test issue organization");
         documentDto.setIsActive(true);
-        documentDto.setDocumentTypeDto(documentTypeDto);
+        documentDto.setDocumentType(documentTypeDto);
         documentService.save(documentDto);
 
         ClientDto clientDto = new ClientDto();
@@ -112,7 +112,7 @@ public class CardServiceTest {
         documentDto.setDateStart(LocalDate.now());
         documentDto.setIssueOrganization("Test issue organization");
         documentDto.setIsActive(true);
-        documentDto.setDocumentTypeDto(documentTypeDto);
+        documentDto.setDocumentType(documentTypeDto);
         documentService.save(documentDto);
 
         ClientDto clientDto = new ClientDto();
@@ -171,7 +171,7 @@ public class CardServiceTest {
         documentDto.setDateStart(LocalDate.now());
         documentDto.setIssueOrganization("Test issue organization");
         documentDto.setIsActive(true);
-        documentDto.setDocumentTypeDto(documentTypeDto);
+        documentDto.setDocumentType(documentTypeDto);
         documentService.save(documentDto);
 
         ClientDto clientDto = new ClientDto();

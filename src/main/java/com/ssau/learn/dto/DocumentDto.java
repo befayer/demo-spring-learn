@@ -21,16 +21,16 @@ public class DocumentDto implements Serializable {
 
     private Boolean isActive;
 
-    private DocumentTypeDto documentTypeDto;
+    private DocumentTypeDto documentType;
 
-    private Set<ClientDto> clientDtoSet = new HashSet<>();
+    private Set<ClientDto> clients = new HashSet<>();
 
     public DocumentDto(LocalDate dateStart, String issueOrganization, Boolean isActive, DocumentTypeDto documentType) {
         this.dateStart = dateStart;
         this.issueOrganization = issueOrganization;
         this.isActive = isActive;
-        this.documentTypeDto = documentType;
-        this.clientDtoSet = new HashSet<>();
+        this.documentType = documentType;
+        this.clients = new HashSet<>();
     }
 
     public Integer getId() {
@@ -49,11 +49,11 @@ public class DocumentDto implements Serializable {
         return isActive;
     }
 
-    public DocumentTypeDto getDocumentTypeDto() {
-        return documentTypeDto;
+    public DocumentTypeDto getDocumentType() {
+        return documentType;
     }
 
-    public Set<ClientDto> getClients(){return clientDtoSet;}
+    public Set<ClientDto> getClients(){return clients;}
 
     //нужен ли public void addClients(ClientDto clientDto)?
 
@@ -64,7 +64,7 @@ public class DocumentDto implements Serializable {
                 ", dateStart=" + dateStart +
                 ", issueOrganization='" + issueOrganization + '\'' +
                 ", isActive=" + isActive +
-                ", documentType=" + documentTypeDto +
+                ", documentType=" + documentType +
                 '}';
     }
 
@@ -76,11 +76,11 @@ public class DocumentDto implements Serializable {
         return Objects.equals(id, that.id) && Objects.equals(dateStart, that.dateStart) &&
                 Objects.equals(issueOrganization, that.issueOrganization) &&
                 Objects.equals(isActive, that.isActive) &&
-                Objects.equals(documentTypeDto, that.documentTypeDto);
+                Objects.equals(documentType, that.documentType);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, dateStart, issueOrganization, isActive, documentTypeDto);
+        return Objects.hash(id, dateStart, issueOrganization, isActive, documentType);
     }
 }

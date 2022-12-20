@@ -3,7 +3,6 @@ package com.ssau.learn.services;
 import com.ssau.learn.DemoApplication;
 import com.ssau.learn.dto.DocumentDto;
 import com.ssau.learn.dto.DocumentTypeDto;
-import com.ssau.learn.mappers.DocumentTypeMapper;
 import com.ssau.learn.service.DocumentService;
 import com.ssau.learn.service.DocumentTypeService;
 import org.junit.Test;
@@ -45,7 +44,7 @@ public class DocumentServiceTest {
         documentDto.setDateStart(LocalDate.now());
         documentDto.setIssueOrganization("Test issue organization");
         documentDto.setIsActive(true);
-        documentDto.setDocumentTypeDto(documentTypeDto);
+        documentDto.setDocumentType(documentTypeDto);
         documentService.save(documentDto);
         Assertions.assertEquals(documentService.getDocument(documentDto.getId()).getId(), documentDto.getId());
     }
@@ -62,7 +61,7 @@ public class DocumentServiceTest {
         documentDto.setDateStart(LocalDate.now());
         documentDto.setIssueOrganization("Test issue organization");
         documentDto.setIsActive(true);
-        documentDto.setDocumentTypeDto(documentTypeDto);
+        documentDto.setDocumentType(documentTypeDto);
         documentService.save(documentDto);
 
         documentDto.setId(2);
@@ -84,7 +83,7 @@ public class DocumentServiceTest {
         documentDto.setDateStart(LocalDate.now());
         documentDto.setIssueOrganization("Test issue organization");
         documentDto.setIsActive(true);
-        documentDto.setDocumentTypeDto(documentTypeDto);
+        documentDto.setDocumentType(documentTypeDto);
         documentService.save(documentDto);
 
         documentDto.setId(2);

@@ -3,11 +3,11 @@
 <table class="table table-striped">
   <thead>
   <tr>
-    <td>Id</td>
     <td>Фамилия</td>
     <td>Имя</td>
     <td>Отчество</td>
     <td>Дата рождения</td>
+    <td></td>
     <td></td>
     <td></td>
   </tr>
@@ -22,10 +22,8 @@
 </table>
 <div>{{statusMessage}}</div>
 
-
 <!--шаблон для чтения-->
 <ng-template #readOnlyTemplate let-client>
-  <td>{{client.id}}</td>
   <td>{{client.firstName}}</td>
   <td>{{client.secondName}}</td>
   <td>{{client.patronymic}}</td>
@@ -36,13 +34,74 @@
   <td>
     <input type="button" value="Удалить" (click)="deleteClient(client)" class="btn btn-danger" />
   </td>
+  <input type="button" value="Добавить документ" class="btn btn-default" (click)="addDocument()" />
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <td>Начало действия</td>
+      <td>Организация</td>
+      <td>Активен</td>
+      <td>Тип док-та</td>
+      <td></td>
+      <td></td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let document of client.documents">
+      <td>{{document.dateStart}}</td>
+      <td>{{document.issueOrganization}}</td>
+      <td>{{document.isActive}}</td>
+      <td>{{document.documentType.documentTypeName}}</td>
+      <td>
+        <input type="button" value="Изменить" class="btn btn-default" (click)="editClient(client)" />
+      </td>
+      <td>
+        <input type="button" value="Удалить" (click)="deleteClient(client)" class="btn btn-danger" />
+      </td>
+    </tr>
+  </table>
 </ng-template>
 
-<!--шаблон для редактирования-->
-<ng-template #editTemplate>
+
+
+<ng-template #readOnlyTemplateDoc let-document>
+  <td>{{document.id}}</td>
+  <td>{{document.dateStart}}</td>
+  <td>{{document.issueOrganization}}</td>
+  <td>{{document.isActive}}</td>
+  <td>{{document.documentType}}</td>
   <td>
-    <!--<input type="number" [(ngModel)]="editedBank.id" readonly disabled class="form-control" />-->
+    <input type="button" value="Изменить" class="btn btn-default" (click)="editDocument(document)" />
   </td>
+  <td>
+    <input type="button" value="Удалить" (click)="deleteDoc(document, client)" class="btn btn-danger" />
+  </td>
+</ng-template>
+
+<ng-template #editTemplateDoc>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <!-- <td>Id</td> -->
+      <td>id</td>
+      <td>Дата начала действия</td>
+      <td>Организация</td>
+      <td>Активность</td>
+      <td></td>
+      <td></td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let document of documents">
+      <ng-template [ngTemplateOutlet]="loadTemplateDoc(document)"
+                   [ngTemplateOutletContext]="{ $implicit: document}">
+      </ng-template>
+    </tr>
+    </tbody>
+  </table>
+</ng-template>
+
+<ng-template #editTemplate>
   <td>
     <input type="text" [(ngModel)]="editedClient.firstName" class="form-control" />
   </td>

@@ -35,10 +35,11 @@ public class Document  implements Serializable {
     @JoinColumn(name = "document_type_id")
     private DocumentType documentType;
 
-    @ManyToMany(fetch = FetchType.LAZY,   cascade = {
-            CascadeType.PERSIST,
-            CascadeType.MERGE
-    },mappedBy = "documents")
+    @ManyToMany
+           (fetch = FetchType.LAZY,   cascade = {
+           CascadeType.PERSIST,
+           CascadeType.MERGE
+    }, mappedBy = "documents")
     @JsonIgnore
     private Set<Client> clients = new HashSet<>();
 

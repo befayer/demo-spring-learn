@@ -1,5 +1,6 @@
 package com.ssau.learn.entity;
 
+import com.ssau.learn.dto.DocumentDto;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -31,17 +32,24 @@ public class Client implements Serializable{
     @Column(name = "birthday", nullable = false)
     private LocalDate birthday;
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.LAZY,
+            cascade = {
+                    CascadeType.ALL
+            })
     @JoinTable(name = "client_documents",
     joinColumns = { @JoinColumn(name = "client_id")},
     inverseJoinColumns = { @JoinColumn(name = "document_id")})
-    private Set<Document> documents = new HashSet<>();
+    private List<Document> documents = new ArrayList<>();
 
     public Client(String firstName, String secondName, String patronymic, LocalDate birthday){
         this.firstName = firstName;
         this.secondName = secondName;
         this.patronymic = patronymic;
         this.birthday = birthday;
-        this.documents = new HashSet<>();
+        this.documents = new ArrayList<>();
+    }
+
+    public void setDocument(Document document){
+        documents.add(document);
     }
 }

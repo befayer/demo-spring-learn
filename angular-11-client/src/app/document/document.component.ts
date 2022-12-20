@@ -1,6 +1,8 @@
 import {TemplateRef, ViewChild, Component, OnInit} from '@angular/core';
 import {Document} from './document';
+import {DocumentType} from "../document-type/document-type";
 import {DocumentService} from './document.service';
+import {DocumentTypeService} from "../document-type/document-type.service";
 
 @Component({
   selector: 'app-document',
@@ -33,13 +35,13 @@ export class DocumentComponent implements OnInit {
   }
 
   addDocument() {
-    this.editedDocument = new Document(0,new Date(),"",true,"");
+    this.editedDocument = new Document(0, "","","", new DocumentType(0, ""));
     this.documents.push(this.editedDocument);
     this.isNewRecord = true;
   }
 
   editDocument(document: Document) {
-    this.editedDocument = new Document(document.id, document.dateStart, document.issueOrganization, document.isActive, document.documentTypeName);
+    this.editedDocument = new Document(document.id, document.dateStart, document.issueOrganization, document.isActive, document.documentType);
   }
 
   loadTemplate(document: Document) : TemplateRef<any>{

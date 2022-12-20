@@ -6,9 +6,7 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 @Data
 @NoArgsConstructor
@@ -19,14 +17,14 @@ public class ClientDto implements Serializable {
     private String secondName;
     private String patronymic;
     private LocalDate birthday;
-    private Set<DocumentDto> documents = new HashSet<>(); // правильно ли, что DocumentDto, а не Document?
+    private List<DocumentDto> documents = new ArrayList<>(); // правильно ли, что DocumentDto, а не Document?
 
     public ClientDto(String firstName, String secondName, String patronymic, LocalDate birthday) {
         this.firstName = firstName;
         this.secondName = secondName;
         this.patronymic = patronymic;
         this.birthday = birthday;
-        documents = new HashSet<>();
+        documents = new ArrayList<>();
     }
 
     public Integer getId() {
@@ -44,7 +42,10 @@ public class ClientDto implements Serializable {
     public LocalDate getBirthday() {
         return birthday;
     }
-    public Set<DocumentDto> getDocuments() {return documents;}
+    public List<DocumentDto> getDocuments() {return documents;}
+    public void setDocument(DocumentDto documentDto){
+        documents.add(documentDto);
+    }
 
     public void addDocument(DocumentDto documentDto){
         documents.add(documentDto);

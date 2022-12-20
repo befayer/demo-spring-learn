@@ -22,6 +22,10 @@ export class DocumentService {
     return this.http.put<Document>(this.url, JSON.stringify(document), {headers:myHeaders});
   }
 
+  getDocument(id: number){
+    return this.http.get<Array<Document>>(this.url);
+  }
+
   deleteDocument(id: number){
     return this.http.delete<Document>(this.url + '/' + id);
   }
